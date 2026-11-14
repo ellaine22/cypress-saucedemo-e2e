@@ -1,5 +1,7 @@
 # cypress-saucedemo-e2e
 
+[![Cypress](https://github.com/ellaine22/cypress-saucedemo-e2e/actions/workflows/cypress.yml/badge.svg)](https://github.com/ellaine22/cypress-saucedemo-e2e/actions/workflows/cypress.yml)
+
 UI and API tests written with Cypress, run against two public practice apps:
 
 - **[SauceDemo](https://www.saucedemo.com)**: login, product sorting, cart and checkout
