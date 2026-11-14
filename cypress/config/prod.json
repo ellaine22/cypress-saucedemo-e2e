@@ -1,0 +1,12 @@
+{
+  "baseUrl": "https://www.saucedemo.com",
+  "expose": {
+    "apiUrl": "https://restful-booker.herokuapp.com",
+    "grepFilterSpecs": true,
+    "grepOmitFiltered": true
+  },
+  "env": {
+    "apiUser": "admin",
+    "apiPassword": "password123"
+  }
+}

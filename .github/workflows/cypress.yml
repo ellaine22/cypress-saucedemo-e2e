@@ -1,0 +1,43 @@
+name: Cypress
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    # nightly run catches changes on the public demo sites
+    - cron: '0 6 * * *'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chrome, firefox]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cypress-io/github-action@v6
+        with:
+          browser: ${{ matrix.browser }}
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: screenshots-${{ matrix.browser }}
+          path: cypress/screenshots
+          retention-days: 7

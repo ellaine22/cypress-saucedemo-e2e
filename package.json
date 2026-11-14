@@ -1,0 +1,23 @@
+{
+  "name": "cypress-saucedemo-e2e",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UI and API test suite built with Cypress against SauceDemo and Restful Booker",
+  "scripts": {
+    "cy:open": "cypress open",
+    "test": "cypress run",
+    "test:ui": "cypress run --spec 'cypress/e2e/ui/**/*'",
+    "test:api": "cypress run --spec 'cypress/e2e/api/**/*'",
+    "test:smoke": "cypress run --expose grepTags=@smoke",
+    "lint": "eslint ."
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@cypress/grep": "^7.0.0",
+    "@eslint/js": "^10.0.1",
+    "cypress": "^15.21.2",
+    "eslint": "^10.15.0",
+    "eslint-plugin-cypress": "^7.0.5",
+    "globals": "^17.14.0"
+  }
+}

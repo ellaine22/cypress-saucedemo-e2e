@@ -1,0 +1,11 @@
+{
+  "firstname": "Maria",
+  "lastname": "Santos",
+  "totalprice": 245,
+  "depositpaid": true,
+  "bookingdates": {
+    "checkin": "2026-03-10",
+    "checkout": "2026-03-14"
+  },
+  "additionalneeds": "Late checkout"
+}
