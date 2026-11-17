@@ -40,9 +40,10 @@ cypress/
 
 ## Running locally
 
-Requires Node 20+.
+Requires a patched Node release: 22.23.5+, 24.22.3+ or 26.13.1+. Older builds still trust the compromised eMudhra intermediate CA, and miss the November 2026 security fixes. `.nvmrc` pins 24.22.3, so `nvm use` picks it up.
 
 ```bash
+nvm use
 npm install
 npm test              # everything, headless
 npm run test:ui       # browser specs only
@@ -59,4 +60,4 @@ CYPRESS_apiUser=me CYPRESS_apiPassword=secret npm run test:api
 
 ## CI
 
-GitHub Actions lints first, then runs the suite in Chrome and Firefox in parallel. It runs on every push and PR, plus nightly, since the target sites can change underneath the tests. Screenshots from failed runs are uploaded as build artifacts.
+GitHub Actions lints first, then runs the suite in Chrome and Firefox in parallel. It runs on every push and PR, plus nightly, since the target sites can change underneath the tests. Screenshots from failed runs are uploaded as build artifacts. Node comes from `.nvmrc`, so CI and local runs use the same patched release.
